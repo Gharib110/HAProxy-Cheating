@@ -23,3 +23,6 @@ use HTTP Mode if you want to:
 option forwardfor if-none
 http-request set-header Forwarded for=%[src]
 ```
+## Enabling Stat Page
+- Add `` stats enable `` to defaults section to enable it
+- Go to `` /haproxy?stats `` of the target frontend
