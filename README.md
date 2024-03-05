@@ -8,3 +8,10 @@ A cheating Guide for HA Proxy !
 ## Default Config
 - The config file path: `` /etc/haproxy/haproxy.cfg ``
 - It contains many lines, do not touch them !
+
+## HTTP Mode
+use HTTP Mode if you want to:
+- routing traffic to particular servers based on the URL, HTTP headers or body
+- modifying the URL and headers
+- reading and setting cookies
+- determining the health of a server based on its HTTP responses
