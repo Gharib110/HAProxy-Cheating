@@ -15,3 +15,9 @@ use HTTP Mode if you want to:
 - modifying the URL and headers
 - reading and setting cookies
 - determining the health of a server based on its HTTP responses
+
+## Forwarding Client IP Address
+```bash
+option forwardfor if-none
+http-request set-header Forwarded for=%[src]
+``
