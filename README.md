@@ -6,4 +6,5 @@ A cheating Guide for HA Proxy !
 - `` add-apt-repository ppa:vbernat/haproxy-2.8 -y `` It is the latest LTS Version
 - `` sudo apt install haproxy=2.4.\* `` Maintain Future Upgrades
 ## Default Config
-
+- The config file path: `` /etc/haproxy/haproxy.cfg ``
+- It contains many lines, do not touch them !
