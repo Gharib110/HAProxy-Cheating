@@ -26,3 +26,10 @@ http-request set-header Forwarded for=%[src]
 ## Enabling Stat Page
 - Add `` stats enable `` to defaults section to enable it
 - Go to `` /haproxy?stats `` of the target frontend
+
+## HAProxy Algorithms
+- Round-Robin
+- Weighted Round-Robin
+- Weighted/Normal LeastConn
+- Weighted/Normal Hash URI
+- First Available
