@@ -33,3 +33,24 @@ http-request set-header Forwarded for=%[src]
 - Weighted/Normal LeastConn
 - Weighted/Normal Hash URI
 - First Available
+
+## Content Switching on URL Path
+Fetch methods and What they do
+- path exact string match
+- path_beg URL begins with string
+- path_dir subdirectory match
+- path_end suffix match
+- path_len length match
+- path_reg regex match
+- path_sub substring match
+
+## Content Switching on URL Params
+- ``acl iswest url_param(region) -i -m str west`` Exact match `` http://mysite.com/?region=west `` and `` -i `` means case-insensitive
+- Match multiple strings : `` acl iswest url_param(region) -i -m str west westcoast wc ``
+- Regex Matching : `` acl iswest url_param(west) -m reg .+ ``
+
+## Content Switching on HTTP Headers
+- `` acl ismobile req.hdr(User-Agent) -i -m reg (android|iphone) `` Filter the Mobile User-Agents and use a seperate backend for them. reg says contains android or iphone
+- Filter based on the Host Header : `` acl ischeapshoes req.hdr(Host) -i -m str www.cheapshoes.com ``, `` acl isexpensiveshoes req.hdr(Host) -i -m str www.expensiveshoes.com ``
+- Match more host on on ACL Rule : `` acl ischeapshoes req.hdr(Host) -i -m str cheapshoes.com www.cheapshoes.com ``
+- 
