@@ -53,4 +53,20 @@ Fetch methods and What they do
 - `` acl ismobile req.hdr(User-Agent) -i -m reg (android|iphone) `` Filter the Mobile User-Agents and use a seperate backend for them. reg says contains android or iphone
 - Filter based on the Host Header : `` acl ischeapshoes req.hdr(Host) -i -m str www.cheapshoes.com ``, `` acl isexpensiveshoes req.hdr(Host) -i -m str www.expensiveshoes.com ``
 - Match more host on on ACL Rule : `` acl ischeapshoes req.hdr(Host) -i -m str cheapshoes.com www.cheapshoes.com ``
-- 
+- with ``req.hdr(<Header_Name>)`` can get a header with its name
+
+## Redirecting
+- Use `` redirect prefix ``
+- By default, HAProxy uses an HTTP response code 302
+```text
+301 The current and all future requests should use the new URL.
+
+302 The current request should be forwarded to the new URL. Future requests should use the original URL.
+
+303 The current request should be forwarded to the new URL, but as a GET. For example, if a client sends a POST request to a form that submits a shopping cart, they could be redirected to another page that shows details of the purchase, but using a GET request. This page can be bookmarked, refreshed, etc. without resubmitting the form. This is available in HTTP/1.1.
+
+307 The current request should be forwarded to the new URL, but do not change the HTTP verb used. For example, if POST was used before, use POST again. Future requests should use the original URL. This is available in HTTP/1.1.
+
+308 The current and all future requests should use the new URL. Do not change the HTTP verb used. For example, if POST was used before, use POST again. This is available in HTTP/1.1.
+
+```
